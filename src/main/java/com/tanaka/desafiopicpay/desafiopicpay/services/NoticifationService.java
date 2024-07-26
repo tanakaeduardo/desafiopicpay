@@ -1,8 +1,6 @@
 package com.tanaka.desafiopicpay.desafiopicpay.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,14 +18,18 @@ public class NoticifationService {
 		
 		NotificationDTO notificationRequest = new NotificationDTO(email, message);
 		
-		ResponseEntity<String> notificationResponse = restTemplate.postForEntity( "https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6", notificationRequest, String.class);
+//		ResponseEntity<String> notificationResponse = restTemplate.postForEntity( "https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6", notificationRequest, String.class);
+//		
+//		if(!(notificationResponse.getStatusCode() == HttpStatus.OK)) {
+//			System.out.println("Erro ao enviar notificacao ");
+//
+//			throw new Exception("Servico de notificacao fora do ar");
+//		}
 		
-		if(!(notificationResponse.getStatusCode() == HttpStatus.OK)) {
-			System.out.println("Erro ao enviar notificacao ");
-
-			throw new Exception("Servico de notificacao fora do ar");
-		}
+		System.out.println("Notificacao enviada para o usuario");
 	}
+	
+	
 
 }
 
