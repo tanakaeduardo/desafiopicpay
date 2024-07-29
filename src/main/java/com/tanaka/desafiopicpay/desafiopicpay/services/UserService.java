@@ -15,7 +15,7 @@ import com.tanaka.desafiopicpay.desafiopicpay.repositories.UserRepository;
 public class UserService {
 
 	@Autowired
-	private UserRepository reposetory;
+	private UserRepository repository;
 	
 	public void validateTransaction(User sender, BigDecimal amount) throws Exception {
 		if(sender.getUserType() == UserType.MERCHANT) {
@@ -28,7 +28,7 @@ public class UserService {
 	}
 	
 	public User findUserById(Long id) throws Exception {
-		return this.reposetory.findUserById(id).orElseThrow(() -> new Exception("Usuario nao encontrado"));
+		return this.repository.findUserById(id).orElseThrow(() -> new Exception("Usuario nao encontrado"));
 	}
 	
 	public User createUser (UserDTO data) {
@@ -38,11 +38,11 @@ public class UserService {
 	}
 	
 	public List<User> getAllUsers(){
-		return this.reposetory.findAll();
+		return this.repository.findAll();
 	}
 	
 	public void saveUser(User user) {
-		this.reposetory.save(user);
+		this.repository.save(user);
 	}
 
 }
